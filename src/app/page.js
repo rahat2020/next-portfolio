@@ -1,12 +1,7 @@
-import HomeComponents from '@/components/Home'
-import React from 'react'
+'use client'
+import { redirect } from 'next/navigation';
 
 const MainPage = () => {
-  return (
-    <div>
-      <HomeComponents/>
-    </div>
-  )
+  redirect("/experience");
 }
-
 export default MainPage

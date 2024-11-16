@@ -5,6 +5,8 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/UI/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/utils/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     fontFamily: {
@@ -45,12 +47,12 @@ module.exports = {
           link: '#004E92',
           light: '#E6F6FC'
         },
-        icons:{
+        icons: {
           facebook: '#0863F7',
           twitter: '#1C9CEA',
           instagram: '#F70A85',
           linkedin: '#2464AD',
-        }, 
+        },
         white: {
           DEFAULT: '#FFF',
           light: '#FAFBFC'
@@ -126,6 +128,7 @@ module.exports = {
         extrabold: '800'
       },
       fontSize: {
+        10: '10px',
         12: '12px',
         13: '13px',
         14: '14px',

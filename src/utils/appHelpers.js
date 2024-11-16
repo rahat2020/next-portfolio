@@ -49,4 +49,32 @@ export const getPlayerDimensions = (screenSize) => {
         return { width: '360px', height: '200px' };
     }
   };
- 
+
+ export const getClassName = (params) => {
+    const styles = {
+      React: 'bg-blue-500 text-white shadow-blue-500/50',
+      'Next.js': 'bg-black text-white shadow-gray-500/50',
+      'Tailwind CSS': 'bg-blue-500 text-white shadow-teal-500',
+      JavaScript: 'bg-yellow text-white shadow-yellow-400/50',
+      TypeScript: 'bg-blue-600 text-white shadow-blue-400/50',
+      'Vue.js': 'dark:bg-gray-700 text-green shadow-green-500/50',
+      Angular: 'dark:bg-gray-700 text-red shadow-red-500/50',
+      'Node.js': 'dark:bg-gray-700 text-green shadow-green-600/50',
+      Express: 'dark:bg-gray-700 text-gray shadow-gray-300/50',
+      HTML5: 'bg-orange-500 text-white',
+      CSS3: 'bg-blue-500 text-white shadow-blue-500/50',
+      Python: 'dark:bg-gray-700 text-green shadow-green-400/50',
+      Vercel: 'dark:bg-gray-700 text-white shadow-gray-400/50',
+      Git: 'bg-red-500 text-orange shadow-orange-600/50',
+      Webpack: 'dark:bg-gray-700 text-green shadow-green-500/50',
+      Figma: 'dark:bg-gray-700 text-pink shadow-pink-400/50',
+      Jira: 'dark:bg-gray-700 text-white shadow-blue-500/50',
+      Vite: 'dark:bg-gray-700 text-purple shadow-purple-500/50',
+      Postman: 'dark:bg-gray-700 text-orange shadow-orange-500/50',
+      MongoDB: 'dark:bg-gray-700 text-green shadow-green-500/50',
+      GraphQL: 'dark:bg-gray-700 text-pink shadow-pink-500/50',
+      'REST API': "RESTful APIs bg-purple-500",
+    };
+  
+    return styles[params] || 'dark:bg-gray-700 text-gray-500 shadow-gray-500/50';
+  };

@@ -1,5 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import { StoreProvider } from "@/redux/StoreProvider";
+import NextTopLoader from "nextjs-toploader";
 
 
 const geistSans = localFont({
@@ -24,7 +26,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <NextTopLoader color="#3B82F6" crawlSpeed={5} showSpinner={false} speed={5} />
+        <StoreProvider>
+          {children}
+        </StoreProvider>
       </body>
     </html>
   );

@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Script from 'next/script'
 import React from 'react'
 
@@ -6,7 +5,7 @@ const LinkedinProfile = () => {
     return (
         <div className='w-full bg-background flex justify-center items-center'>
             <div
-                class="badge-base LI-profile-badge"
+                className="badge-base LI-profile-badge"
                 data-locale="en_US"
                 data-size="large"
                 data-theme="light"
