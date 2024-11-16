@@ -4,8 +4,9 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { ChevronDown } from 'react-feather';
-import { addTabs } from '@/redux/app/appSlice';
 import useMediaQuery from '@/hooks/useMediaQuery';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTabs } from '@/redux/app/appSlice';
 
 const AppTabs = ({
   isFullWidthTab = false,
@@ -22,7 +23,7 @@ const AppTabs = ({
   const router = useRouter();
   const isMobileScreen = useMediaQuery('(max-width: 768px)');
 
-//   const activeTab = useSelector((state) => state?.app?.tabs?.[id]?.activeTab);
+  const activeTab = useSelector((state) => state?.app?.tabs?.[id]?.activeTab);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -36,7 +37,7 @@ const AppTabs = ({
   };
 
   const getMainWrapperClasses = () => {
-    let classes = 'py-6 ';
+    let classes = 'py-2 rounded-full ';
 
     if (isSticky) {
       classes += 'sticky top-0 z-40 bg-gray ';
@@ -70,9 +71,9 @@ const AppTabs = ({
     }
   };
   const getTabButtonClasses = (path) => {
-    let classes = 'inline text-sm font-medium lg:px-8 px-4 py-2.5 rounded-md ';
+    let classes = 'inline text-sm font-medium lg:px-8 px-4 py-2.5 rounded-full ';
 
-    if (pathname?.includes(path)) {
+    if ( pathname?.includes(path)) {
       classes += 'bg-brand-light text-brand';
     } else {
       classes += 'text-regular';
@@ -82,7 +83,7 @@ const AppTabs = ({
   };
 
   useEffect(() => {
-    dispatch(addTabs({ [id]: { activeTab: 0 } }));
+    dispatch(addTabs({ [id]: { activeTab: 1 } }));
   }, []);
 
   return (
@@ -131,7 +132,7 @@ const AppTabs = ({
       ) : (
         <div>
           <div
-            className={`bg-white rounded-lg p-1 ${
+            className={`bg-white rounded-full lg:mx-8 p-1 ${
               isFullWidthTab ? 'grid grid-cols-2 w-full' : 'flex flex-wrap text-center gap-[5px]'
             }`}
           >

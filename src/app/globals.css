@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 
-*{
+/* *{
     background-color: #1f2937 ;
-}
+} */
+
+:root {
+    --brand-color: #00a1e0;
+    --brand-link-color: #004e92;
+  }

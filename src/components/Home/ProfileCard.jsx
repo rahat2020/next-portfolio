@@ -20,7 +20,7 @@ const ProfileCard = () => {
                 {/* Profile section */}
                 <div className="max-w-6xl mx-auto px-4">
                     {/* Profile photo */}
-                    <div className="relative -mt-24 mb-4">
+                    <div className="relative bg-transparent -mt-24 mb-4">
                         <div className="inline-block rounded-full border-4 border-background">
                             <Image
                                 src={alterredUserAvatar}
@@ -36,10 +36,10 @@ const ProfileCard = () => {
                     <div className="flex justify-between items-start">
                         <div className="space-y-1">
                             <div className="flex items-center gap-2">
-                                <h1 className="text-2xl font-semibold">Tahsin Ahmed</h1>
+                                <h1 className="text-2xl font-semibold">Kazi MD. Boktair Uddin Rahat</h1>
                                 <span className="text-sm text-muted-foreground">• 1st</span>
                             </div>
-                            <p className="text-lg">Software Quality Assurance Engineer (SQA) | (Manual & Automation: Testing) - Gain Solution Ltd.</p>
+                            <p className="text-lg">Front End Developer | React JS Developer | Javascript Developer | (Javascript Developer) - Gain Solution Ltd.</p>
                             <p className="text-muted-foreground">Dhaka, Bangladesh · <Link href="#" className="text-blue-600 hover:underline">Contact info</Link></p>
                             <div className="flex items-center gap-1 text-sm text-muted-foreground">
                                 <span>1,056 followers</span>
