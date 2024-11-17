@@ -1,12 +1,13 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
-import { ExternalLink, GitHub } from 'react-feather'
-import { getClassName } from '@/utils/appHelpers'
+import { ExternalLink, GitHub, Heart, MessageSquare, ThumbsDown, ThumbsUp } from 'react-feather'
+import { getClassName, truncateText } from '@/utils/appHelpers'
+import Link from 'next/link'
 
 const ProjectsCard = ({ data }) => {
   const [isHovered, setIsHovered] = useState(false)
-  const { title, description, imageUrl, technologies, githubUrl, liveUrl } = data || {};
+  const { title, description, imageUrl, technologies, githubUrl, liveUrl, createdAt, author } = data || {};
   console.log("🚀 ~ ProjectsCard ~ data:", data)
 
   return (
@@ -26,8 +27,13 @@ const ProjectsCard = ({ data }) => {
         />
       </div>
       <div className="px-6 py-4">
-        <h2 className="font-bold text-xl mb-2 text-black">{title}</h2>
-        <p className="text-gray-700 text-base">{description}</p>
+        <p className="font-bold text-black text-20">{title}</p>
+        <div className="flex gap-2 justify-start items-center">
+          <span className='w-2 h-2 bg-yellow-400 rounded-full'></span>
+          <span className='text-gray-700 text-10 font-semibold'>{author} -</span>
+          <span className='text-gray-700 text-10 font-semibold'>{createdAt}</span>
+        </div>
+        <p className="text-gray-700 text-base">{truncateText(description, 80)}</p>
       </div>
       <div className="px-6 pt-4 pb-2">
         {technologies?.map((tech, index) => (
@@ -37,7 +43,7 @@ const ProjectsCard = ({ data }) => {
         ))}
       </div>
       <div className="px-6 py-4 flex justify-between">
-        <a
+        <Link
           href={githubUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -45,8 +51,8 @@ const ProjectsCard = ({ data }) => {
         >
           <GitHub className="w-5 h-5 mr-2" />
           <span>GitHub</span>
-        </a>
-        <a
+        </Link>
+        <Link
           href={liveUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -54,7 +60,18 @@ const ProjectsCard = ({ data }) => {
         >
           <ExternalLink className="w-5 h-5 mr-2" />
           <span>Live Demo</span>
-        </a>
+        </Link>
+      </div>
+      <div className="flex justify-between px-6 pb-4">
+        <span className='cursor-pointer w-8 h-8 rounded-full bg-red-300 hover:bg-red-400 p-2 flex justify-center items-center'>
+          <ThumbsDown className="w-4 h-4 text-white" />
+        </span>
+        <span className='cursor-pointer w-8 h-8 rounded-full bg-yellow-300 hover:bg-yellow-400 p-2 flex justify-center items-center'>
+          <MessageSquare className="w-4 h-4 text-white" />
+        </span>
+        <span className='cursor-pointer w-8 h-8 rounded-full bg-green-300 hover:bg-green-400 p-2 flex justify-center items-center'>
+          <ThumbsUp className="w-4 h-4 text-white" />
+        </span>
       </div>
     </div>
   )

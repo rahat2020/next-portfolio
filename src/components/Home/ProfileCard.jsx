@@ -2,9 +2,15 @@ import AppButton from "@/UI/AppButton";
 import { alterredUserAvatar } from "@/utils/appHelpers";
 import Image from "next/image"
 import Link from "next/link"
+import { useState } from "react";
 import { Bell, MessageCircle, MoreHorizontal } from "react-feather";
+import ContactForm from "../Mydata/helper/ContactForm";
 
 const ProfileCard = () => {
+    const [isModalOpen, setIsModalOpen] = useState({
+        contact: false
+    })
+
     return (
         <div className="w-full bg-background">
             <div className="relative">
@@ -21,13 +27,14 @@ const ProfileCard = () => {
                 <div className="max-w-6xl mx-auto px-4">
                     {/* Profile photo */}
                     <div className="relative bg-transparent -mt-24 mb-4">
-                        <div className="inline-block rounded-full border-4 border-background">
+                        <div className="inline-block justify-center items-center rounded-full w-40 h-40 border-4 border-background">
                             <Image
-                                src={alterredUserAvatar}
+                                src="/assests/rahat.jpg"
                                 alt="Profile photo"
+                                loading="lazy"
                                 width={160}
                                 height={160}
-                                className="rounded-full"
+                                className="rounded-full w-40 h-40 object-cover"
                             />
                         </div>
                     </div>
@@ -105,7 +112,9 @@ const ProfileCard = () => {
                             <AppButton
                                 customStyles="bg-blue-600 hover:bg-blue-700 text-white"
                                 icon={MessageCircle}
+                                withoutHrefBtn
                                 iconClasses="w-4 h-4 mr-2"
+                                callback={() => setIsModalOpen((prev) => ({ ...prev, contact: true }))}
                                 text="Message"
                             />
                             <AppButton
@@ -123,6 +132,10 @@ const ProfileCard = () => {
                     </div>
                 </div>
             </div>
+            {
+                isModalOpen?.contact &&
+                <ContactForm setIsModalOpen={setIsModalOpen} />
+            }
         </div>
     )
 }
