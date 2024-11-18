@@ -2,6 +2,8 @@ export const projectsData = [
     {
       id:1,
       title: "Amazing Project",
+      author: "Kazi Rahat",
+      createdAt: "22th Feb, 2024",
       description: "This is a fantastic project that showcases my skills in frontend development.",
       imageUrl: "https://www.shutterstock.com/image-photo/demo-text-message-magnifying-glass-600nw-2491336635.jpg",
       technologies: ["React", "Next.js", "Tailwind CSS"],
@@ -11,6 +13,8 @@ export const projectsData = [
     {
       id: 2,
       title: "Another Great Project",
+      createdAt: "22th Nov, 2024",
+      author: "Kazi Rahat",
       description: "An innovative project focusing on cutting-edge web development practices.",
       imageUrl: "https://img.freepik.com/free-photo/side-view-man-holding-paper-pieces_23-2149930948.jpg",
       technologies: ["Vue.js", "Nuxt.js", "CSS Modules"],
@@ -20,6 +24,8 @@ export const projectsData = [
     {
       id: 3,
       title: "Creative Portfolio",
+      createdAt: "12th Nov, 2024",
+      author: "Kazi Rahat",
       description: "A personal portfolio showcasing my work and achievements in frontend development.",
       imageUrl: "https://img.freepik.com/free-photo/female-web-designer-with-papers-notes-office_23-2149749913.jpg",
       technologies: ["HTML5", "CSS3", "JavaScript"],
@@ -29,6 +35,8 @@ export const projectsData = [
     {
       id: 4,
       title: "Medicare",
+      createdAt: "2nd Nov, 2024",
+      author: "Kazi Rahat",
       description: "A personal portfolio showcasing my work and achievements in frontend development.",
       imageUrl: "https://img.freepik.com/free-photo/medium-shot-man-sketching-web-design_23-2149930947.jpg",
       technologies: ["HTML", "CSS", "JavaScript"],
