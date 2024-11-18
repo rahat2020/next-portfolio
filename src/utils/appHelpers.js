@@ -6,6 +6,10 @@ export const dummyBlogThumbnail = 'https://new.axilthemes.com/themes/blogar/wp-c
 
 export const smallThumbnail = 'https://new.axilthemes.com/themes/blogar/wp-content/uploads/2021/01/demo_image-1-300x169.jpg';
 
+export const nuUniversity = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMzq3eRXaNw_3L42QicNibFE7wJ61hjuSHPg&s"
+
+export const gainSolution = "https://media.licdn.com/dms/image/v2/C560BAQF7RcGBjjpfLg/company-logo_100_100/company-logo_100_100/0/1674646007895/gain_solutions_ltd_logo?e=1740009600&v=beta&t=l9Fz3mV8tV2dpffc-ScfBDPNUex6TDMDTFOSFrKO4Gc"
+
 export const getCurrentYear = new Date().getFullYear();
 
 export const truncateText = (text, maxLength, ellipsis = '...') => {

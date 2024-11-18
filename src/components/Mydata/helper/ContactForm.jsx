@@ -62,6 +62,7 @@ const ContactForm = ({ setIsModalOpen }) => {
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                     Name
+                    <span className='text-red ms-1 text-14'>*</span>
                   </label>
                   <input
                     type="text"
@@ -76,6 +77,7 @@ const ContactForm = ({ setIsModalOpen }) => {
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                     Email
+                    <span className='text-red ms-1 text-14'>*</span>
                   </label>
                   <input
                     type="email"
@@ -91,6 +93,7 @@ const ContactForm = ({ setIsModalOpen }) => {
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700">
                     Message
+                    <span className='text-red ms-1 text-14'>*</span>
                   </label>
                   <textarea
                     id="message"

@@ -1,15 +1,42 @@
 import AppButton from "@/UI/AppButton";
-import { alterredUserAvatar } from "@/utils/appHelpers";
+import { alterredUserAvatar, gainSolution, nuUniversity } from "@/utils/appHelpers";
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react";
-import { Bell, MessageCircle, MoreHorizontal } from "react-feather";
+import { Bell, LogIn, LogOut, MessageCircle, User } from "react-feather";
 import ContactForm from "../Mydata/helper/ContactForm";
+import AppDropdown from "@/UI/AppDropdown";
+import ContactInfo from "../Mydata/helper/ContactInfo";
 
 const ProfileCard = () => {
     const [isModalOpen, setIsModalOpen] = useState({
-        contact: false
-    })
+        contact: false,
+        contactInfo: false
+    });
+    const [btnLabel, setBtnLabel] = useState('More');
+    const handleCallback = (params) => {
+        console.log("🚀 ~ handleCallback ~ params:", params)
+    }
+    const dropdownData = [
+        {
+            id: 1,
+            label: "Login",
+            icon: LogIn,
+            show: true
+        },
+        {
+            id: 2,
+            label: "Logout",
+            icon: LogOut,
+            show: true
+        },
+        {
+            id: 2,
+            label: "Profile",
+            icon: User,
+            show: true
+        },
+    ]
 
     return (
         <div className="w-full bg-background">
@@ -46,12 +73,20 @@ const ProfileCard = () => {
                                 <h1 className="text-2xl font-semibold">Kazi MD. Boktair Uddin Rahat</h1>
                                 <span className="text-sm text-muted-foreground">• 1st</span>
                             </div>
-                            <p className="text-lg">Front End Developer | React JS Developer | Javascript Developer | (Javascript Developer) - Gain Solution Ltd.</p>
-                            <p className="text-muted-foreground">Dhaka, Bangladesh · <Link href="#" className="text-blue-600 hover:underline">Contact info</Link></p>
+                            <p className="text-16 text-border-dark font-semibold">Front End Developer | React JS Developer | Javascript Developer | (Javascript Developer) - Gain Solution Ltd.</p>
+                            <p className="text-border-dark font-semibold">Dhaka, Bangladesh ·{" "}
+                                <span
+                                    role="button"
+                                    tabIndex={0}
+                                    onClick={()=> setIsModalOpen((prev)=> ({...prev, contactInfo: true}))}
+                                    className="text-blue-600 hover:underline">
+                                    Contact info
+                                </span>
+                            </p>
                             <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                                <span>1,056 followers</span>
-                                <span>•</span>
-                                <span>500+ connections</span>
+                                <span className="text-border-dark font-semibold">1,056 followers</span>
+                                <span className="text-border-dark font-semibold">•</span>
+                                <span className="text-border-dark font-semibold">500+ connections</span>
                             </div>
 
                             {/* Education and Experience */}
@@ -59,26 +94,26 @@ const ProfileCard = () => {
                                 <div className="flex items-center gap-2">
                                     <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
                                         <Image
-                                            src={alterredUserAvatar}
+                                            src={gainSolution}
                                             alt="Gain Solutions Ltd"
                                             width={32}
                                             height={32}
-                                            className="rounded-full"
+                                            className="rounded-full w-8 h-8 object-cover"
                                         />
                                     </div>
-                                    <span>Gain Solutions Ltd</span>
+                                    <span className="text-border-dark font-semibold">Gain Solutions Ltd</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
                                         <Image
-                                            src={alterredUserAvatar}
+                                            src={nuUniversity}
                                             alt="American International University-Bangladesh"
                                             width={32}
                                             height={32}
-                                            className="rounded-full"
+                                            className="rounded-full w-8 h-8 object-fit"
                                         />
                                     </div>
-                                    <span>American International University-Bangladesh</span>
+                                    <span className="text-border-dark font-semibold">National University-Bangladesh</span>
                                 </div>
                             </div>
 
@@ -102,7 +137,7 @@ const ProfileCard = () => {
                                 </div>
                                 <span className="text-sm text-muted-foreground">
                                     <Link href="#" className="text-blue-600 hover:underline">Md. Lutfar Rahman, Jeromio Ghagra Calvin</Link>
-                                    , and 29 other mutual connections
+                                    , <span className="text-border-dark font-semibold">and 29 other mutual connections</span> 
                                 </span>
                             </div>
                         </div>
@@ -117,11 +152,10 @@ const ProfileCard = () => {
                                 callback={() => setIsModalOpen((prev) => ({ ...prev, contact: true }))}
                                 text="Message"
                             />
-                            <AppButton
-                                customStyles="text-outline"
-                                icon={MoreHorizontal}
-                                iconClasses="w-4 h-4 mr-2"
-                                text="More"
+                            <AppDropdown
+                                buttonLabel={btnLabel}
+                                menuItems={dropdownData}
+                                callback={(params) => handleCallback(params)}
                             />
                             <AppButton
                                 customStyles="ml-2"
@@ -135,6 +169,10 @@ const ProfileCard = () => {
             {
                 isModalOpen?.contact &&
                 <ContactForm setIsModalOpen={setIsModalOpen} />
+            }
+            {
+                isModalOpen?.contactInfo &&
+                <ContactInfo setIsModalOpen={setIsModalOpen} />
             }
         </div>
     )
