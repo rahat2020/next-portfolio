@@ -8,7 +8,7 @@ const NotFound =()=> {
       <div className="max-w-md w-full space-y-8 text-center">
         <div className="space-y-4">
           <h1 className="text-6xl font-extrabold text-blue-600">404</h1>
-          <p className="text-xl text-gray-600">Oops! The page you're looking for doesn't exist.</p>
+          <p className="text-xl text-gray-600">Oops! The page you&apos;re looking for doesn&apos;t exist.</p>
         </div>
         
         <div className="flex justify-center">
