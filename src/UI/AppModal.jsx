@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 import { X } from 'react-feather'
 
-const AppModal = ({ isOpen, onClose, title, children }) => {
+const AppModal = ({ isOpen, onClose, title, children, customClasses = "w-[30rem] bg-white rounded-lg shadow-lg" }) => {
   const modalRef = useRef(null)
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const AppModal = ({ isOpen, onClose, title, children }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
       <div
         ref={modalRef}
-        className="w-full max-w-md bg-white rounded-lg shadow-lg"
+        className={customClasses}
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"

@@ -84,7 +84,7 @@ const AppTabs = ({
 
   useEffect(() => {
     dispatch(addTabs({ [id]: { activeTab: 1 } }));
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <div className={getMainWrapperClasses()}>

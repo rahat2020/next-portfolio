@@ -1,3 +1,4 @@
+import { gainSolution } from '@/utils/appHelpers';
 import Image from 'next/image'
 import { CheckSquare } from 'react-feather';
 
@@ -11,11 +12,11 @@ const Experience = () => {
           <div className="flex gap-4">
             <div className="flex-shrink-0">
               <Image
-                src="https://media.licdn.com/dms/image/v2/C560BAQF7RcGBjjpfLg/company-logo_100_100/company-logo_100_100/0/1674646007895/gain_solutions_ltd_logo?e=1740009600&v=beta&t=l9Fz3mV8tV2dpffc-ScfBDPNUex6TDMDTFOSFrKO4Gc"
+                src={gainSolution}
                 alt="Gain Solutions Ltd"
                 width={48}
                 height={48}
-                className="rounded"
+                className="rounded w-8 h-8 object-cover"
               />
             </div>
 

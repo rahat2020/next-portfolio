@@ -13,7 +13,7 @@ const ThankYouCard = ({ setIsModalOpen }) => {
                         </div>
                         <h2 className="text-3xl font-bold text-gray-800 mb-4">Thank You!</h2>
                         <p className="text-gray-600 mb-6">
-                            We've received your message and we're excited to connect with you. We will get back to you shortly.
+                            We&apos;ve received your message and we&apos;re excited to connect with you. We will get back to you shortly.
                         </p>
                         <div className="space-y-4">
                             <p className="text-sm text-gray-500">
