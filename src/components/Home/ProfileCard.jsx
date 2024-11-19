@@ -1,22 +1,28 @@
 import AppButton from "@/UI/AppButton";
 import { alterredUserAvatar, gainSolution, nuUniversity } from "@/utils/appHelpers";
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { Bell, LogIn, LogOut, MessageCircle, User } from "react-feather";
 import ContactForm from "../Mydata/helper/ContactForm";
 import AppDropdown from "@/UI/AppDropdown";
 import ContactInfo from "../Mydata/helper/ContactInfo";
+import SignInAndSignUp from "../Authentication";
 
 const ProfileCard = () => {
     const [isModalOpen, setIsModalOpen] = useState({
         contact: false,
-        contactInfo: false
+        contactInfo: false,
+        loginCompo: false,
     });
     const [btnLabel, setBtnLabel] = useState('More');
+
     const handleCallback = (params) => {
-        console.log("🚀 ~ handleCallback ~ params:", params)
+        const { label } = params || {};
+        setBtnLabel(label);
+        setIsModalOpen((prev) => ({ ...prev, loginCompo: true }));
     }
+
     const dropdownData = [
         {
             id: 1,
@@ -78,7 +84,7 @@ const ProfileCard = () => {
                                 <span
                                     role="button"
                                     tabIndex={0}
-                                    onClick={()=> setIsModalOpen((prev)=> ({...prev, contactInfo: true}))}
+                                    onClick={() => setIsModalOpen((prev) => ({ ...prev, contactInfo: true }))}
                                     className="text-blue-600 hover:underline">
                                     Contact info
                                 </span>
@@ -137,7 +143,7 @@ const ProfileCard = () => {
                                 </div>
                                 <span className="text-sm text-muted-foreground">
                                     <Link href="#" className="text-blue-600 hover:underline">Md. Lutfar Rahman, Jeromio Ghagra Calvin</Link>
-                                    , <span className="text-border-dark font-semibold">and 29 other mutual connections</span> 
+                                    , <span className="text-border-dark font-semibold">and 29 other mutual connections</span>
                                 </span>
                             </div>
                         </div>
@@ -173,6 +179,9 @@ const ProfileCard = () => {
             {
                 isModalOpen?.contactInfo &&
                 <ContactInfo setIsModalOpen={setIsModalOpen} />
+            }
+            {
+                isModalOpen?.loginCompo && <SignInAndSignUp setIsModalOpen={setIsModalOpen} />
             }
         </div>
     )

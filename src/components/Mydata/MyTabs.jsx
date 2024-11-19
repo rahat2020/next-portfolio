@@ -1,9 +1,9 @@
-import React from 'react'
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import Experience from './Experience';
 import AppTabs from '@/UI/AppTabs';
 import Blogs from './Blogs';
 import ProjectsComponent from './projects';
+import Videos from './Videos/Videos';
 
 const MyTabs = ({ children }) => {
 
@@ -27,6 +27,13 @@ const MyTabs = ({ children }) => {
       path: '/blogs',
       label: 'Blogs',
       content: <Blogs />,
+      show: true
+    },
+    {
+      id: 4,
+      path: '/videos',
+      label: 'Videos',
+      content: <Videos />,
       show: true
     }
   ];

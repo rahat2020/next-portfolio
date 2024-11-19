@@ -29,7 +29,7 @@ const SingleProject = () => {
   }
 
   return (
-    <div className="max-w-4xl mt-8 mx-auto p-8 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl shadow-2xl">
+    <div className="max-w-4xl mt-8 mx-auto p-8 bg-gradient-to-br bg-white rounded-xl shadow-2xl">
       <div className="mb-8 overflow-hidden rounded-xl shadow-lg relative group">
         <Image
           src={project.image}
