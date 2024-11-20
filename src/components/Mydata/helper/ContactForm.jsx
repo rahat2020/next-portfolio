@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import AppModal from '@/UI/AppModal';
-import ThankYouCard from '@/UI/ThankYouCard';
-import React, { useState } from 'react';
+import AppModal from "@/UI/AppModal";
+import ThankYouCard from "@/UI/ThankYouCard";
+import React, { useState } from "react";
 
 const ContactForm = ({ setIsModalOpen }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: ""
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -24,10 +24,10 @@ const ContactForm = ({ setIsModalOpen }) => {
 
   const validateForm = () => {
     let newErrors = {};
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.email.trim()) newErrors.email = 'Email is required';
-    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email is invalid';
-    if (!formData.message.trim()) newErrors.message = 'Message is required';
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Email is invalid";
+    if (!formData.message.trim()) newErrors.message = "Message is required";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -40,7 +40,7 @@ const ContactForm = ({ setIsModalOpen }) => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setIsSubmitting(false);
       setSubmitSuccess(true);
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: "", email: "", message: "" });
     }
   };
 
@@ -52,7 +52,7 @@ const ContactForm = ({ setIsModalOpen }) => {
             <ThankYouCard setIsModalOpen={setIsModalOpen} />
           </div>
         ) : (
-          <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+          <div className="max-w-md mx-auto p-6 bg-white rounded-lg">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
@@ -65,7 +65,7 @@ const ContactForm = ({ setIsModalOpen }) => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`mt-1 block w-full rounded-md border shadow-sm outline-none bg-white/30 backdrop-blur-md p-3 text-gray-900 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`mt-1 block w-full rounded-md border shadow-sm outline-none bg-white/30 backdrop-blur-md p-3 text-gray-900 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${errors.name ? "border-red-500" : "border-gray-300"}`}
                 />
                 {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
               </div>
@@ -81,7 +81,7 @@ const ContactForm = ({ setIsModalOpen }) => {
                   value={formData.email}
                   onChange={handleChange}
                   className={`mt-1 block w-full rounded-md border shadow-sm bg-white/30 backdrop-blur-md p-3 text-gray-900 outline-none 
-                 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+                 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${errors.email ? "border-red-500" : "border-gray-300"}`}
                 />
                 {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
               </div>
@@ -96,7 +96,7 @@ const ContactForm = ({ setIsModalOpen }) => {
                   rows="4"
                   value={formData.message}
                   onChange={handleChange}
-                  className={`mt-1 block w-full rounded-md border outline-none shadow-sm bg-white/30 backdrop-blur-md p-3 text-gray-900 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${errors.message ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`mt-1 block w-full rounded-md border outline-none shadow-sm bg-white/30 backdrop-blur-md p-3 text-gray-900 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${errors.message ? "border-red-500" : "border-gray-300"}`}
                 ></textarea>
                 {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message}</p>}
               </div>
@@ -105,7 +105,7 @@ const ContactForm = ({ setIsModalOpen }) => {
                 disabled={isSubmitting}
                 className="w-full py-2 px-4 border outline-none border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>

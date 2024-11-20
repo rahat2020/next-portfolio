@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState, useRef, useEffect } from 'react';
-import { ChevronDown } from 'react-feather';
+import { useState, useRef, useEffect } from "react";
+import { ChevronDown } from "react-feather";
 
-const AppDropdown = ({ buttonLabel = 'Options', menuItems = [], callback = () => {} }) => {
+const AppDropdown = ({ buttonLabel = "Options", menuItems = [], callback = () => {} }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -14,9 +14,9 @@ const AppDropdown = ({ buttonLabel = 'Options', menuItems = [], callback = () =>
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -31,7 +31,7 @@ const AppDropdown = ({ buttonLabel = 'Options', menuItems = [], callback = () =>
           <span>{buttonLabel}</span>
           <ChevronDown
             className={`ml-2 h-5 w-5 text-gray-400 transition-transform duration-200 ${
-              isOpen ? 'rotate-180' : ''
+              isOpen ? "rotate-180" : ""
             }`}
           />
         </button>

@@ -1,40 +1,40 @@
-'use client';
-import React from 'react';
-import Topbar from './Topbar';
-import Header from './Header';
-import ProfileCard from './ProfileCard';
-import LinkedinProfile from './LinkedinProfile';
-import MyTabs from '../Mydata/MyTabs';
+"use client";
+import React from "react";
+import Topbar from "./Topbar";
+import Header from "./Header";
+import ProfileCard from "./ProfileCard";
+import LinkedinProfile from "./LinkedinProfile";
+import MyTabs from "../Mydata/MyTabs";
 
 const HomeComponents = () => {
   const isWebComponent = [
     {
       id: 1,
-      title: 'Topbar',
+      title: "Topbar",
       component: <Topbar />,
       show: false
     },
     {
       id: 2,
-      title: 'ProfileCard',
+      title: "ProfileCard",
       component: <ProfileCard />,
       show: true
     },
     {
       id: 3,
-      title: 'Header',
+      title: "Header",
       component: <Header />,
       show: false
     },
     {
       id: 4,
-      title: 'LinkedinProfile',
+      title: "LinkedinProfile",
       component: <LinkedinProfile />,
       show: false
     },
     {
       id: 5,
-      title: 'Mytabs',
+      title: "Mytabs",
       component: <MyTabs />,
       show: true
     }

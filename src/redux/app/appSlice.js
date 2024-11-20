@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   modalProps: {},
@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const appSlice = createSlice({
-  name: 'app',
+  name: "app",
   initialState,
   reducers: {
     addModalProps: (state, action) => ({ ...state, modalProps: action.payload }),

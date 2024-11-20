@@ -1,5 +1,16 @@
 {
-  "extends": "next/core-web-vitals",
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "prettier",
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "next/core-web-vitals"
+  ],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
@@ -39,12 +50,13 @@
     "react/destructuring-assignment": 0,
     "camelcase": 0,
     "import/no-extraneous-dependencies": 0,
-    "react/function-component-definition": [
-      2,
-      {
-        "namedComponents": ["arrow-function", "function-declaration", "function-expression"]
-      }
-    ],
+    "react/function-component-definition": "off",
+    // "react/function-component-definition": [
+    //   2,
+    //   {
+    //     "namedComponents": ["arrow-function", "function-declaration", "function-expression"]
+    //   }
+    // ],
     "react/jsx-filename-extension": [
       1,
       {
@@ -55,7 +67,7 @@
       "error",
       {
         "trailingComma": "none",
-        "singleQuote": true,
+        "singleQuote": false,
         "printWidth": 100,
         "tabWidth": 2,
         "semi": true,
@@ -64,5 +76,12 @@
     ],
     "react/no-unknown-property": 0
   },
-  "plugins": ["prettier", "react", "react-hooks"]
+  "plugins": ["prettier"],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "extensions": [".js", ".jsx", ".json"]
+      }
+    }
+  }
 }

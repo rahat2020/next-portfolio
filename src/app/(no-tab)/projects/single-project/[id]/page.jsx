@@ -1,13 +1,14 @@
-import React from 'react';
-import SingleProject from '@/components/Mydata/SingleProject/SingleProject';
-import ProfileCard from '@/components/Home/ProfileCard';
+import React from "react";
+import SingleProject from "@/components/Mydata/SingleProject/SingleProject";
+import ProfileCard from "@/components/Home/ProfileCard";
 
 const SingleProjectPage = ({ params }) => {
-    return (
-        <>
-            <ProfileCard /><SingleProject projectID={params?.id} />
-        </>
-    )
-}
+  return (
+    <>
+      <ProfileCard />
+      <SingleProject projectID={params?.id} />
+    </>
+  );
+};
 
-export default SingleProjectPage
+export default SingleProjectPage;

@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { ArrowLeft, ArrowRight, Download, Send } from 'react-feather';
-import AppButton from '@/UI/AppButton';
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { ArrowLeft, ArrowRight, Download, Send } from "react-feather";
+import AppButton from "@/UI/AppButton";
 
 const Header = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    '/https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg',
-    'https://www.shutterstock.com/image-photo/demo-text-message-magnifying-glass-600nw-2491336635.jpg',
-    '/https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg'
+    "/https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg",
+    "https://www.shutterstock.com/image-photo/demo-text-message-magnifying-glass-600nw-2491336635.jpg",
+    "/https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg"
   ];
 
   useEffect(() => {

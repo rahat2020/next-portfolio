@@ -1,27 +1,27 @@
-'use client';
+"use client";
 
-import AppModal from '@/UI/AppModal';
-import Link from 'next/link';
-import { useState } from 'react';
-import { Clock, Mail, MapPin, Phone, Youtube } from 'react-feather';
+import AppModal from "@/UI/AppModal";
+import Link from "next/link";
+import { useState } from "react";
+import { Clock, Mail, MapPin, Phone, Youtube } from "react-feather";
 
 const ContactInfo = ({ setIsModalOpen }) => {
   const [hoveredItem, setHoveredItem] = useState(null);
 
   const contactItems = [
-    { icon: Phone, content: '+1 (555) 123-4567', href: 'tel:+15551234567' },
+    { icon: Phone, content: "+1 (555) 123-4567", href: "tel:+15551234567" },
     {
       icon: Mail,
-      content: 'kazimdboktiar2020@gmail.com',
-      href: 'mailto:kazimdboktiar2020@gmail.com'
+      content: "kazimdboktiar2020@gmail.com",
+      href: "mailto:kazimdboktiar2020@gmail.com"
     },
     {
       icon: MapPin,
-      content: 'Mirpur - 12, Dhaka - Bangladesh',
-      href: 'https://www.google.com/maps/place/Pallabi+Metro+Station/@23.8260333,90.3622514,17z/data=!3m1!4b1!4m6!3m5!1s0x3755c143b7c7cca5:0x6bf520429a98d902!8m2!3d23.8260284!4d90.3648263!16s%2Fg%2F11l6f5zjj9?entry=ttu&g_ep=EgoyMDI0MTExNy4wIKXMDSoASAFQAw%3D%3D'
+      content: "Mirpur - 12, Dhaka - Bangladesh",
+      href: "https://www.google.com/maps/place/Pallabi+Metro+Station/@23.8260333,90.3622514,17z/data=!3m1!4b1!4m6!3m5!1s0x3755c143b7c7cca5:0x6bf520429a98d902!8m2!3d23.8260284!4d90.3648263!16s%2Fg%2F11l6f5zjj9?entry=ttu&g_ep=EgoyMDI0MTExNy4wIKXMDSoASAFQAw%3D%3D"
     },
-    { icon: Clock, content: 'Open 24/5' },
-    { icon: Youtube, content: '@rahatwebdev', href: 'https://www.youtube.com/@rahatwebdev' }
+    { icon: Clock, content: "Open 24/5" },
+    { icon: Youtube, content: "@rahatwebdev", href: "https://www.youtube.com/@rahatwebdev" }
   ];
 
   return (
@@ -44,7 +44,7 @@ const ContactInfo = ({ setIsModalOpen }) => {
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
                     <item.icon
-                      className={`h-8 w-8 ${hoveredItem === index ? 'text-indigo-600' : 'text-indigo-400'} transition-colors duration-300`}
+                      className={`h-8 w-8 ${hoveredItem === index ? "text-indigo-600" : "text-indigo-400"} transition-colors duration-300`}
                     />
                   </div>
                   <div className="flex-grow">

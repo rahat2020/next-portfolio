@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-const AppSpinner = ({ message = 'Loading' }) => {
+const AppSpinner = ({ message = "Loading" }) => {
   const [progress, setProgress] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {

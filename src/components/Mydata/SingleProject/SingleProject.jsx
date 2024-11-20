@@ -1,19 +1,22 @@
-'use client'
+"use client";
 
-import AppBreadcrumb from '@/UI/AppBreadCrumb';
-import AppButton from '@/UI/AppButton';
-import Image from 'next/image';
-import { useState } from 'react';
-import { Calendar, ChevronRight, Clock, GitHub, Globe, Star, Tag, Users } from 'react-feather';
+import AppBreadcrumb from "@/UI/AppBreadCrumb";
+import AppButton from "@/UI/AppButton";
+import Image from "next/image";
+import { useState } from "react";
+import { Calendar, ChevronRight, Clock, GitHub, Globe, Star, Tag, Users } from "react-feather";
 
-const SingleProject = ({ projectID }) => {
-  const [isExpanded, setIsExpanded] = useState(false)
+const SingleProject = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const project = {
     title: "Medicare",
-    description: "TechNova is an innovative task management application that leverages artificial intelligence to help users organize, prioritize, and complete their tasks more efficiently. The AI suggests optimal task orders, estimates completion times, and provides intelligent reminders based on user behavior and task urgency.",
-    longDescription: "TechNova goes beyond traditional task managers by incorporating machine learning algorithms that adapt to each user's unique working style. It features natural language processing for quick task entry, automated categorization, and smart scheduling that takes into account your calendar and energy levels. The application also includes a pomodoro timer with AI-optimized work/break intervals, real-time collaboration features, and insightful productivity analytics to help users continuously improve their time management skills.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7azzXC86UaubPeMjqsIjGQY30kVb5Jq9iyg&s",
+    description:
+      "TechNova is an innovative task management application that leverages artificial intelligence to help users organize, prioritize, and complete their tasks more efficiently. The AI suggests optimal task orders, estimates completion times, and provides intelligent reminders based on user behavior and task urgency.",
+    longDescription:
+      "TechNova goes beyond traditional task managers by incorporating machine learning algorithms that adapt to each user's unique working style. It features natural language processing for quick task entry, automated categorization, and smart scheduling that takes into account your calendar and energy levels. The application also includes a pomodoro timer with AI-optimized work/break intervals, real-time collaboration features, and insightful productivity analytics to help users continuously improve their time management skills.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7azzXC86UaubPeMjqsIjGQY30kVb5Jq9iyg&s",
     technologies: ["React", "Next.js", "TensorFlow.js", "Node.js", "MongoDB", "Tailwind CSS"],
     liveLink: "https://medicareee.vercel.app/",
     repoLink: "https://github.com/rahat2020",
@@ -28,12 +31,12 @@ const SingleProject = ({ projectID }) => {
       "Productivity analytics dashboard"
     ],
     starCount: 5
-  }
+  };
 
   const breadcrumbList = [
     {
-      title: 'Projects',
-      href: '/projects'
+      title: "Projects",
+      href: "/projects"
     },
     {
       title: project?.title,
@@ -100,8 +103,10 @@ const SingleProject = ({ projectID }) => {
         onClick={() => setIsExpanded(!isExpanded)}
         className="text-blue-600 hover:text-blue-800 transition-colors duration-300 flex items-center mb-6"
       >
-        {isExpanded ? 'Show Less' : 'Read More'}
-        <ChevronRight className={`ml-1 h-4 w-4 transition-transform duration-300 ${isExpanded ? 'rotate-90' : ''}`} />
+        {isExpanded ? "Show Less" : "Read More"}
+        <ChevronRight
+          className={`ml-1 h-4 w-4 transition-transform duration-300 ${isExpanded ? "rotate-90" : ""}`}
+        />
       </button>
 
       <div className="mb-8">
@@ -122,7 +127,10 @@ const SingleProject = ({ projectID }) => {
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">Technologies Used</h2>
         <div className="flex flex-wrap gap-3">
           {project.technologies.map((tech, index) => (
-            <span key={index} className="px-4 py-2 bg-white text-blue-600 rounded-full text-sm font-medium flex items-center shadow-md hover:shadow-lg transition-shadow duration-300">
+            <span
+              key={index}
+              className="px-4 py-2 bg-white text-blue-600 rounded-full text-sm font-medium flex items-center shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
               <Tag className="h-4 w-4 mr-2" />
               {tech}
             </span>
@@ -141,15 +149,14 @@ const SingleProject = ({ projectID }) => {
         <AppButton
           href={project.repoLink}
           icon={GitHub}
-          iconClasses='h-5 w-5 mr-2'
+          iconClasses="h-5 w-5 mr-2"
           text="View Repository"
           targetBlank="_blank"
-          customBtnStyles="flex-1 flex items-center justify-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 
-          transition-colors duration-300 shadow-md hover:shadow-lg"
+          customBtnStyles="flex-1 flex items-center justify-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors duration-300 shadow-md hover:shadow-lg"
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default SingleProject;

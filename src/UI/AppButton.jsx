@@ -1,16 +1,16 @@
-'use client';
-import React from 'react';
-import Link from 'next/link';
+"use client";
+import React from "react";
+import Link from "next/link";
 
 const AppButton = ({
-  href = '',
+  href = "",
   text,
   icon: Icon,
-  customStyles = '',
-  customBtnStyles = '',
-  iconClasses = '',
+  customStyles = "",
+  customBtnStyles = "",
+  iconClasses = "",
   withoutHrefBtn = false,
-  targetBlank = '',
+  targetBlank = "",
   callback = () => {}
 }) => {
   return (
@@ -19,13 +19,13 @@ const AppButton = ({
     >
       {withoutHrefBtn ? (
         <button className={`flex items-center ${customBtnStyles}`} onClick={callback}>
-          {Icon && <Icon className={iconClasses || 'w-5 h-5'} />}{' '}
+          {Icon && <Icon className={iconClasses || "w-5 h-5"} />}{" "}
           <span className="ms-2">{text}</span>
         </button>
       ) : (
         <Link href={href} onClick={callback} target={targetBlank} className="">
           <button className={`flex items-center ${customBtnStyles}`}>
-            {Icon && <Icon className={iconClasses || 'w-5 h-5'} />}{' '}
+            {Icon && <Icon className={iconClasses || "w-5 h-5"} />}{" "}
             <span className="ms-2">{text}</span>
           </button>
         </Link>

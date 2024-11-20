@@ -1,32 +1,32 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef } from 'react';
-import { X } from 'react-feather';
+import React, { useEffect, useRef } from "react";
+import { X } from "react-feather";
 
 const AppModal = ({
   isOpen,
   onClose,
   title,
   children,
-  customClasses = 'w-[30rem] bg-white rounded-lg shadow-lg'
+  customClasses = "w-[30rem] bg-white rounded-lg shadow-lg"
 }) => {
   const modalRef = useRef(null);
 
   useEffect(() => {
     const handleEscape = (event) => {
-      if (event.key === 'Escape') {
+      if (event.key === "Escape") {
         onClose();
       }
     };
 
     if (isOpen) {
-      document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'visible';
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "visible";
     };
   }, [isOpen, onClose]);
 

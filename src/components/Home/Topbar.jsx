@@ -1,10 +1,10 @@
-'use client';
-import Link from 'next/link';
-import React, { useState } from 'react';
-import { X, User, Lock, AlignRight } from 'react-feather';
-import { navData } from '@/data/navData';
-import AppButton from '@/UI/AppButton';
-import Image from 'next/image';
+"use client";
+import Link from "next/link";
+import React, { useState } from "react";
+import { X, User, Lock, AlignRight } from "react-feather";
+import { navData } from "@/data/navData";
+import AppButton from "@/UI/AppButton";
+import Image from "next/image";
 
 const Topbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -48,9 +48,9 @@ const Topbar = () => {
             href={item?.href}
             onClick={() => {
               if (item.dropdown) {
-                if (item.label === 'Pages') {
+                if (item.label === "Pages") {
                   setPagesDropdownOpen(!pagesDropdownOpen);
-                } else if (item.label === 'Specialties') {
+                } else if (item.label === "Specialties") {
                   setSpeDropdownOpen(!speDropdownOpen);
                 }
               }
@@ -64,10 +64,10 @@ const Topbar = () => {
           {item?.dropdown && (
             <div
               className={`w-48 left-0 top-6 mt-1 border rounded-sm transition-all duration-300 bg-white z-10 ${
-                (item.label === 'Pages' && pagesDropdownOpen) ||
-                (item.label === 'Specialties' && speDropdownOpen)
-                  ? 'block'
-                  : 'hidden'
+                (item.label === "Pages" && pagesDropdownOpen) ||
+                (item.label === "Specialties" && speDropdownOpen)
+                  ? "block"
+                  : "hidden"
               }`}
             >
               {item?.dropdown?.map((dropdownItem, idx) => (
@@ -104,7 +104,7 @@ const Topbar = () => {
           <div className="">
             <Link href="/">
               <Image
-                src={'/logo/MEDICARE_HALF.png'}
+                src={"/logo/MEDICARE_HALF.png"}
                 alt="logo"
                 width={175}
                 height={80}
@@ -124,16 +124,16 @@ const Topbar = () => {
         <div className="hidden md:flex items-center space-x-2 md:space-x-4">
           <AppButton
             href="/signUp"
-            text={'Register'}
+            text={"Register"}
             icon={User}
-            customStyles={'hover:bg-blue-500 hover:text-white px-2'}
+            customStyles={"hover:bg-blue-500 hover:text-white px-2"}
           ></AppButton>
           <AppButton
             href="/login"
-            text={'Login'}
+            text={"Login"}
             icon={Lock}
             customStyles={
-              'bg-blue-500 text-white hover:bg-white hover:text-blue-500 border-blue-500 px-2'
+              "bg-blue-500 text-white hover:bg-white hover:text-blue-500 border-blue-500 px-2"
             }
           ></AppButton>
         </div>

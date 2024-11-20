@@ -1,6 +1,6 @@
-'use client'
-import Link from 'next/link';
-import React from 'react';
+"use client";
+import Link from "next/link";
+import React from "react";
 
 const AppBreadcrumb = ({
   index,
@@ -14,7 +14,7 @@ const AppBreadcrumb = ({
     {item?.activeLink ? (
       <span
         className={`text-14 font-semibold text-border-regular ${
-          isCapitilizeActiveLink ? 'capitalize' : ''
+          isCapitilizeActiveLink ? "capitalize" : ""
         }`}
       >
         {item?.title}

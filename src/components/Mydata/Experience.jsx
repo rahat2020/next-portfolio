@@ -1,6 +1,6 @@
-import { gainSolution } from '@/utils/appHelpers';
-import Image from 'next/image';
-import { CheckSquare } from 'react-feather';
+import { gainSolution } from "@/utils/appHelpers";
+import Image from "next/image";
+import { CheckSquare } from "react-feather";
 
 const Experience = () => {
   return (
@@ -28,11 +28,11 @@ const Experience = () => {
 
               <div className="space-y-2 mt-3">
                 {[
-                  'Developed and Implemented Software Test Plans and Strategies.',
-                  'Executed Manual and Automated Tests on Web Applications, Mobile Applications, and Software.',
-                  'Identified, Documented, and Tracked Software Defects.',
-                  'Provided Technical Support for Software Issues and Troubleshooting.',
-                  'Writing the Test Cases and Bug Reports.'
+                  "Developed and Implemented Software Test Plans and Strategies.",
+                  "Executed Manual and Automated Tests on Web Applications, Mobile Applications, and Software.",
+                  "Identified, Documented, and Tracked Software Defects.",
+                  "Provided Technical Support for Software Issues and Troubleshooting.",
+                  "Writing the Test Cases and Bug Reports."
                 ].map((item, index) => (
                   <div key={index} className="flex gap-2">
                     <CheckSquare className="h-5 w-5 flex-shrink-0 text-gray-400" />

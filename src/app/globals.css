@@ -2,12 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* *{
     background-color: #1f2937 ;
 } */
 
 :root {
-    --brand-color: #00b3fa;
-    --brand-link-color: #004e92;
-  }
+  --brand-color: #00b3fa;
+  --brand-link-color: #004e92;
+}

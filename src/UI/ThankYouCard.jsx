@@ -1,6 +1,6 @@
-import React from 'react';
-import { ArrowRight, CheckCircle } from 'react-feather';
-import AppButton from './AppButton';
+import React from "react";
+import { ArrowRight, CheckCircle } from "react-feather";
+import AppButton from "./AppButton";
 
 const ThankYouCard = ({ setIsModalOpen }) => {
   return (

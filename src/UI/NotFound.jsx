@@ -1,6 +1,6 @@
-'use client';
-import Link from 'next/link';
-import { AlertCircle, Home } from 'react-feather';
+"use client";
+import Link from "next/link";
+import { AlertCircle, Home } from "react-feather";
 
 const NotFound = () => {
   return (
