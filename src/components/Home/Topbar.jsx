@@ -1,10 +1,10 @@
-"use client";
-import Link from "next/link";
-import React, { useState } from "react";
-import { X, User, Lock, AlignRight } from "react-feather";
-import { navData } from "@/data/navData";
-import AppButton from "@/UI/AppButton";
-import Image from "next/image";
+'use client';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import { X, User, Lock, AlignRight } from 'react-feather';
+import { navData } from '@/data/navData';
+import AppButton from '@/UI/AppButton';
+import Image from 'next/image';
 
 const Topbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -15,12 +15,8 @@ const Topbar = () => {
     <>
       {navData.map((item, index) => (
         <div key={index} className="relative group">
-          <Link
-            href={item.href}
-            className="hover:text-blue-600 flex gap-1 items-center"
-          >
-            {item.label}{" "}
-            {item.icon && <span className="ml-1">{item.icon}</span>}
+          <Link href={item.href} className="hover:text-blue-600 flex gap-1 items-center">
+            {item.label} {item.icon && <span className="ml-1">{item.icon}</span>}
           </Link>
 
           {item.dropdown && (
@@ -46,16 +42,15 @@ const Topbar = () => {
 
   const smallDeviceLinks = (
     <>
-
       {navData?.map((item, index) => (
         <div key={index} className="relative">
           <Link
             href={item?.href}
             onClick={() => {
               if (item.dropdown) {
-                if (item.label === "Pages") {
+                if (item.label === 'Pages') {
                   setPagesDropdownOpen(!pagesDropdownOpen);
-                } else if (item.label === "Specialties") {
+                } else if (item.label === 'Specialties') {
                   setSpeDropdownOpen(!speDropdownOpen);
                 }
               }
@@ -68,22 +63,24 @@ const Topbar = () => {
           {/* Dropdown */}
           {item?.dropdown && (
             <div
-              className={`w-48 left-0 top-6 mt-1 border rounded-sm transition-all duration-300 bg-white z-10 ${(item.label === "Pages" && pagesDropdownOpen) ||
-                  (item.label === "Specialties" && speDropdownOpen)
-                  ? "block"
-                  : "hidden"
-                }`}
+              className={`w-48 left-0 top-6 mt-1 border rounded-sm transition-all duration-300 bg-white z-10 ${
+                (item.label === 'Pages' && pagesDropdownOpen) ||
+                (item.label === 'Specialties' && speDropdownOpen)
+                  ? 'block'
+                  : 'hidden'
+              }`}
             >
-              {item?.dropdown?.map((dropdownItem, idx) => <div key={idx}>
-                <Link
-                  href={dropdownItem?.href}
-                  className="hover:text-blue-600 flex gap-1 items-center px-4 py-3 duration-300"
-                >
-                  {dropdownItem?.label}
-                </Link>
-                {idx < item.dropdown.length - 1 && <hr />}
-              </div>
-              )}
+              {item?.dropdown?.map((dropdownItem, idx) => (
+                <div key={idx}>
+                  <Link
+                    href={dropdownItem?.href}
+                    className="hover:text-blue-600 flex gap-1 items-center px-4 py-3 duration-300"
+                  >
+                    {dropdownItem?.label}
+                  </Link>
+                  {idx < item.dropdown.length - 1 && <hr />}
+                </div>
+              ))}
             </div>
           )}
         </div>
@@ -130,15 +127,15 @@ const Topbar = () => {
             text={'Register'}
             icon={User}
             customStyles={'hover:bg-blue-500 hover:text-white px-2'}
-          >
-          </AppButton>
+          ></AppButton>
           <AppButton
             href="/login"
             text={'Login'}
             icon={Lock}
-            customStyles={'bg-blue-500 text-white hover:bg-white hover:text-blue-500 border-blue-500 px-2'}
-          >
-          </AppButton>
+            customStyles={
+              'bg-blue-500 text-white hover:bg-white hover:text-blue-500 border-blue-500 px-2'
+            }
+          ></AppButton>
         </div>
       </div>
 

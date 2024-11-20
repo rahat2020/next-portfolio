@@ -1,36 +1,42 @@
-'use client'
+'use client';
 
-import React, { useEffect, useRef } from 'react'
-import { X } from 'react-feather'
+import React, { useEffect, useRef } from 'react';
+import { X } from 'react-feather';
 
-const AppModal = ({ isOpen, onClose, title, children, customClasses = "w-[30rem] bg-white rounded-lg shadow-lg" }) => {
-  const modalRef = useRef(null)
+const AppModal = ({
+  isOpen,
+  onClose,
+  title,
+  children,
+  customClasses = 'w-[30rem] bg-white rounded-lg shadow-lg'
+}) => {
+  const modalRef = useRef(null);
 
   useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === 'Escape') {
-        onClose()
+        onClose();
       }
-    }
+    };
 
     if (isOpen) {
-      document.addEventListener('keydown', handleEscape)
-      document.body.style.overflow = 'hidden'
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape)
-      document.body.style.overflow = 'visible'
-    }
-  }, [isOpen, onClose])
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'visible';
+    };
+  }, [isOpen, onClose]);
 
   useEffect(() => {
     if (isOpen && modalRef.current) {
-      modalRef.current.focus()
+      modalRef.current.focus();
     }
-  }, [isOpen])
+  }, [isOpen]);
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
@@ -57,7 +63,7 @@ const AppModal = ({ isOpen, onClose, title, children, customClasses = "w-[30rem]
         <div className="p-4">{children}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AppModal
+export default AppModal;

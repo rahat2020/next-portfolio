@@ -15,7 +15,7 @@ const ProjectsCard = ({ data }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link href={`/single-project/${id}`}>
+      <Link href={`/projects/single-project/${id}`}>
         <div className="relative h-48 w-full overflow-hidden">
           <Image
             src={imageUrl}

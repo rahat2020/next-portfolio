@@ -29,7 +29,6 @@ const AppTabs = ({
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
-
   const handleActiveTab = (index, tab) => {
     dispatch(addTabs({ [id]: { activeTab: index } }));
     if (callback) callback(tab);
@@ -70,10 +69,10 @@ const AppTabs = ({
       router.push(params?.path);
     }
   };
+
   const getTabButtonClasses = (path) => {
     let classes = 'inline text-sm font-medium lg:px-8 px-4 py-2.5 rounded-full ';
-
-    if ( pathname?.includes(path)) {
+    if (pathname?.includes(path)) {
       classes += 'bg-brand-light text-brand';
     } else {
       classes += 'text-regular';

@@ -3,10 +3,9 @@ import Experience from './Experience';
 import AppTabs from '@/UI/AppTabs';
 import Blogs from './Blogs';
 import ProjectsComponent from './projects';
-import Videos from './Videos/Videos';
+import Videos from './Videos/VideoCard';
 
 const MyTabs = ({ children }) => {
-
   const tabData = [
     {
       id: 1,
@@ -39,11 +38,11 @@ const MyTabs = ({ children }) => {
   ];
 
   return (
-    <div className='px-4 lg:px-20 py-8'>
+    <div className="px-4 lg:px-20 py-8">
       <AppTabs tabs={tabData} id="my-tab" />
       {children}
     </div>
-  )
-}
+  );
+};
 
-export default MyTabs
+export default MyTabs;

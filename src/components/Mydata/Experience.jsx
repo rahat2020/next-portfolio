@@ -1,5 +1,5 @@
 import { gainSolution } from '@/utils/appHelpers';
-import Image from 'next/image'
+import Image from 'next/image';
 import { CheckSquare } from 'react-feather';
 
 const Experience = () => {
@@ -32,7 +32,7 @@ const Experience = () => {
                   'Executed Manual and Automated Tests on Web Applications, Mobile Applications, and Software.',
                   'Identified, Documented, and Tracked Software Defects.',
                   'Provided Technical Support for Software Issues and Troubleshooting.',
-                  'Writing the Test Cases and Bug Reports.',
+                  'Writing the Test Cases and Bug Reports.'
                 ].map((item, index) => (
                   <div key={index} className="flex gap-2">
                     <CheckSquare className="h-5 w-5 flex-shrink-0 text-gray-400" />
@@ -44,7 +44,8 @@ const Experience = () => {
               <div className="mt-4 pt-4 border-t border-gray-200">
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-medium text-gray-900">
-                    Software Development Life Cycle (SDLC), Software Testing Life Cycle (STLC) and +22 skills
+                    Software Development Life Cycle (SDLC), Software Testing Life Cycle (STLC) and
+                    +22 skills
                   </span>
                 </div>
               </div>
@@ -53,8 +54,7 @@ const Experience = () => {
         </div>
       </div>
     </div>
-
-  )
-}
+  );
+};
 
 export default Experience;

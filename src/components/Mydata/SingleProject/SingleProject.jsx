@@ -1,10 +1,12 @@
 'use client'
 
-import Image from 'next/image'
-import { useState } from 'react'
-import { Calendar, ChevronRight, Clock, GitHub, Globe, Star, Tag, Users } from 'react-feather'
+import AppBreadcrumb from '@/UI/AppBreadCrumb';
+import AppButton from '@/UI/AppButton';
+import Image from 'next/image';
+import { useState } from 'react';
+import { Calendar, ChevronRight, Clock, GitHub, Globe, Star, Tag, Users } from 'react-feather';
 
-const SingleProject = () => {
+const SingleProject = ({ projectID }) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   const project = {
@@ -28,8 +30,32 @@ const SingleProject = () => {
     starCount: 5
   }
 
+  const breadcrumbList = [
+    {
+      title: 'Projects',
+      href: '/projects'
+    },
+    {
+      title: project?.title,
+      activeLink: true
+    }
+  ];
+
   return (
-    <div className="max-w-4xl mt-8 mx-auto p-8 bg-gradient-to-br bg-white rounded-xl shadow-2xl">
+    <div className="max-w-6xl mt-8 mx-auto p-8 rounded-xl ">
+      <div className="lg:p-8">
+        {breadcrumbList.map((item, index) => (
+          <AppBreadcrumb
+            key={item.title}
+            breadcrumbList={breadcrumbList}
+            item={item}
+            index={index}
+            href={item.href}
+            isCapitilizeActiveLink
+            breadcrumbListLength={breadcrumbList.length}
+          />
+        ))}
+      </div>
       <div className="mb-8 overflow-hidden rounded-xl shadow-lg relative group">
         <Image
           src={project.image}
@@ -44,9 +70,9 @@ const SingleProject = () => {
           <p className="text-sm">{project.description}</p>
         </div>
       </div>
-      
+
       <h1 className="text-4xl font-bold text-gray-800 mb-4">{project.title}</h1>
-      
+
       <div className="flex flex-wrap gap-4 mb-6 text-sm text-gray-600">
         <div className="flex items-center">
           <Clock className="h-4 w-4 mr-1 text-blue-500" />
@@ -65,12 +91,12 @@ const SingleProject = () => {
           <span>{project.starCount} Stars</span>
         </div>
       </div>
-      
+
       <p className="text-gray-700 mb-4 leading-relaxed">
         {isExpanded ? project.longDescription : project.description}
       </p>
-      
-      <button 
+
+      <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="text-blue-600 hover:text-blue-800 transition-colors duration-300 flex items-center mb-6"
       >
@@ -105,24 +131,22 @@ const SingleProject = () => {
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4">
-        <a
+        <AppButton
           href={project.liveLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md hover:shadow-lg"
-        >
-          <Globe className="h-5 w-5 mr-2" />
-          View Live Project
-        </a>
-        <a
+          icon={Globe}
+          text="View Live Project"
+          targetBlank="_blank"
+          customBtnStyles="flex-1 flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md hover:shadow-lg"
+        />
+        <AppButton
           href={project.repoLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors duration-300 shadow-md hover:shadow-lg"
-        >
-          <GitHub className="h-5 w-5 mr-2" />
-          View Repository
-        </a>
+          icon={GitHub}
+          iconClasses='h-5 w-5 mr-2'
+          text="View Repository"
+          targetBlank="_blank"
+          customBtnStyles="flex-1 flex items-center justify-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 
+          transition-colors duration-300 shadow-md hover:shadow-lg"
+        />
       </div>
     </div>
   )
