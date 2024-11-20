@@ -1,13 +1,14 @@
-'use client'
-import { useState } from 'react'
-import Image from 'next/image'
-import { ExternalLink, GitHub, MessageSquare, ThumbsDown, ThumbsUp } from 'react-feather'
-import { getClassName, truncateText } from '@/utils/appHelpers'
-import Link from 'next/link'
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+import { ExternalLink, GitHub, MessageSquare, ThumbsDown, ThumbsUp } from "react-feather";
+import { getClassName, truncateText } from "@/utils/appHelpers";
+import Link from "next/link";
 
 const ProjectsCard = ({ data }) => {
-  const [isHovered, setIsHovered] = useState(false)
-  const { title, description, imageUrl, technologies, githubUrl, liveUrl, createdAt, author, id } = data || {};
+  const [isHovered, setIsHovered] = useState(false);
+  const { title, description, imageUrl, technologies, githubUrl, liveUrl, createdAt, author, id } =
+    data || {};
 
   return (
     <div
@@ -15,7 +16,7 @@ const ProjectsCard = ({ data }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link href={`/single-project/${id}`}>
+      <Link href={`/projects/single-project/${id}`}>
         <div className="relative h-48 w-full overflow-hidden">
           <Image
             src={imageUrl}
@@ -23,21 +24,24 @@ const ProjectsCard = ({ data }) => {
             layout="fill"
             objectFit="cover"
             className="transition-all duration-300 ease-in-out"
-            style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)' }}
+            style={{ transform: isHovered ? "scale(1.05)" : "scale(1)" }}
           />
         </div>
         <div className="px-6 py-4">
           <p className="font-bold text-black text-20">{title}</p>
           <div className="flex gap-2 justify-start items-center">
-            <span className='w-2 h-2 bg-yellow-400 rounded-full'></span>
-            <span className='text-gray-700 text-10 font-semibold'>{author} -</span>
-            <span className='text-gray-700 text-10 font-semibold'>{createdAt}</span>
+            <span className="w-2 h-2 bg-yellow-400 rounded-full"></span>
+            <span className="text-gray-700 text-10 font-semibold">{author} -</span>
+            <span className="text-gray-700 text-10 font-semibold">{createdAt}</span>
           </div>
           <p className="text-gray-700 text-base">{truncateText(description, 80)}</p>
         </div>
         <div className="px-6 pt-4 pb-2">
           {technologies?.map((tech, index) => (
-            <span key={index} className={`inline-block ${getClassName(tech)} rounded-full px-3 py-1 text-10 font-semibold mr-2 mb-2`}>
+            <span
+              key={index}
+              className={`inline-block ${getClassName(tech)} rounded-full px-3 py-1 text-10 font-semibold mr-2 mb-2`}
+            >
               {tech}
             </span>
           ))}
@@ -64,18 +68,18 @@ const ProjectsCard = ({ data }) => {
         </Link>
       </div>
       <div className="flex justify-between px-6 pb-4">
-        <span className='cursor-pointer w-8 h-8 rounded-full bg-red-300 hover:bg-red-400 p-2 flex justify-center items-center'>
+        <span className="cursor-pointer w-8 h-8 rounded-full bg-red-300 hover:bg-red-400 p-2 flex justify-center items-center">
           <ThumbsDown className="w-4 h-4 text-white" />
         </span>
-        <span className='cursor-pointer w-8 h-8 rounded-full bg-yellow-300 hover:bg-yellow-400 p-2 flex justify-center items-center'>
+        <span className="cursor-pointer w-8 h-8 rounded-full bg-yellow-300 hover:bg-yellow-400 p-2 flex justify-center items-center">
           <MessageSquare className="w-4 h-4 text-white" />
         </span>
-        <span className='cursor-pointer w-8 h-8 rounded-full bg-green-300 hover:bg-green-400 p-2 flex justify-center items-center'>
+        <span className="cursor-pointer w-8 h-8 rounded-full bg-green-300 hover:bg-green-400 p-2 flex justify-center items-center">
           <ThumbsUp className="w-4 h-4 text-white" />
         </span>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ProjectsCard;

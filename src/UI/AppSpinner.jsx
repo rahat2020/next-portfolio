@@ -1,20 +1,19 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 
 const AppSpinner = ({ message = "Loading" }) => {
-  const [progress, setProgress] = useState(0)
-
+  const [progress, setProgress] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress((oldProgress) => {
-        const newProgress = oldProgress + 1
-        return newProgress > 100 ? 0 : newProgress
-      })
-    }, 50)
+        const newProgress = oldProgress + 1;
+        return newProgress > 100 ? 0 : newProgress;
+      });
+    }, 50);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 to-purple-500">
@@ -47,7 +46,7 @@ const AppSpinner = ({ message = "Loading" }) => {
       </div>
       <div className="mt-8 text-white text-2xl font-light">{message}</div>
     </div>
-  )
-}
+  );
+};
 
 export default AppSpinner;

@@ -1,6 +1,6 @@
-import React from 'react';
-import AppSpinner from '@/UI/AppSpinner';
+import React from "react";
+import AppSpinner from "@/UI/AppSpinner";
 
-const LoadingPage = () => <AppSpinner />
+const LoadingPage = () => <AppSpinner />;
 
-export default LoadingPage
+export default LoadingPage;

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import NotFound from '@/UI/NotFound';
-import React from 'react';
+import NotFound from "@/UI/NotFound";
+import React from "react";
 
-const NotFoundPage = () => <NotFound />
+const NotFoundPage = () => <NotFound />;
 
-export default NotFoundPage
+export default NotFoundPage;

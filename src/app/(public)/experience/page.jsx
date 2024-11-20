@@ -1,6 +1,6 @@
-import Experience from '@/components/Mydata/Experience'
-import React from 'react'
+import Experience from "@/components/Mydata/Experience";
+import React from "react";
 
-const ExperiencePage = () => <Experience />
+const ExperiencePage = () => <Experience />;
 
-export default ExperiencePage
+export default ExperiencePage;

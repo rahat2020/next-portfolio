@@ -1,17 +1,22 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import { useState } from 'react'
-import { Calendar, ChevronRight, Clock, GitHub, Globe, Star, Tag, Users } from 'react-feather'
+import AppBreadcrumb from "@/UI/AppBreadCrumb";
+import AppButton from "@/UI/AppButton";
+import Image from "next/image";
+import { useState } from "react";
+import { Calendar, ChevronRight, Clock, GitHub, Globe, Star, Tag, Users } from "react-feather";
 
 const SingleProject = () => {
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const project = {
     title: "Medicare",
-    description: "TechNova is an innovative task management application that leverages artificial intelligence to help users organize, prioritize, and complete their tasks more efficiently. The AI suggests optimal task orders, estimates completion times, and provides intelligent reminders based on user behavior and task urgency.",
-    longDescription: "TechNova goes beyond traditional task managers by incorporating machine learning algorithms that adapt to each user's unique working style. It features natural language processing for quick task entry, automated categorization, and smart scheduling that takes into account your calendar and energy levels. The application also includes a pomodoro timer with AI-optimized work/break intervals, real-time collaboration features, and insightful productivity analytics to help users continuously improve their time management skills.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7azzXC86UaubPeMjqsIjGQY30kVb5Jq9iyg&s",
+    description:
+      "TechNova is an innovative task management application that leverages artificial intelligence to help users organize, prioritize, and complete their tasks more efficiently. The AI suggests optimal task orders, estimates completion times, and provides intelligent reminders based on user behavior and task urgency.",
+    longDescription:
+      "TechNova goes beyond traditional task managers by incorporating machine learning algorithms that adapt to each user's unique working style. It features natural language processing for quick task entry, automated categorization, and smart scheduling that takes into account your calendar and energy levels. The application also includes a pomodoro timer with AI-optimized work/break intervals, real-time collaboration features, and insightful productivity analytics to help users continuously improve their time management skills.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7azzXC86UaubPeMjqsIjGQY30kVb5Jq9iyg&s",
     technologies: ["React", "Next.js", "TensorFlow.js", "Node.js", "MongoDB", "Tailwind CSS"],
     liveLink: "https://medicareee.vercel.app/",
     repoLink: "https://github.com/rahat2020",
@@ -26,10 +31,34 @@ const SingleProject = () => {
       "Productivity analytics dashboard"
     ],
     starCount: 5
-  }
+  };
+
+  const breadcrumbList = [
+    {
+      title: "Projects",
+      href: "/projects"
+    },
+    {
+      title: project?.title,
+      activeLink: true
+    }
+  ];
 
   return (
-    <div className="max-w-4xl mt-8 mx-auto p-8 bg-gradient-to-br bg-white rounded-xl shadow-2xl">
+    <div className="max-w-6xl mt-8 mx-auto p-8 rounded-xl ">
+      <div className="lg:p-8">
+        {breadcrumbList.map((item, index) => (
+          <AppBreadcrumb
+            key={item.title}
+            breadcrumbList={breadcrumbList}
+            item={item}
+            index={index}
+            href={item.href}
+            isCapitilizeActiveLink
+            breadcrumbListLength={breadcrumbList.length}
+          />
+        ))}
+      </div>
       <div className="mb-8 overflow-hidden rounded-xl shadow-lg relative group">
         <Image
           src={project.image}
@@ -44,9 +73,9 @@ const SingleProject = () => {
           <p className="text-sm">{project.description}</p>
         </div>
       </div>
-      
+
       <h1 className="text-4xl font-bold text-gray-800 mb-4">{project.title}</h1>
-      
+
       <div className="flex flex-wrap gap-4 mb-6 text-sm text-gray-600">
         <div className="flex items-center">
           <Clock className="h-4 w-4 mr-1 text-blue-500" />
@@ -65,17 +94,19 @@ const SingleProject = () => {
           <span>{project.starCount} Stars</span>
         </div>
       </div>
-      
+
       <p className="text-gray-700 mb-4 leading-relaxed">
         {isExpanded ? project.longDescription : project.description}
       </p>
-      
-      <button 
+
+      <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="text-blue-600 hover:text-blue-800 transition-colors duration-300 flex items-center mb-6"
       >
-        {isExpanded ? 'Show Less' : 'Read More'}
-        <ChevronRight className={`ml-1 h-4 w-4 transition-transform duration-300 ${isExpanded ? 'rotate-90' : ''}`} />
+        {isExpanded ? "Show Less" : "Read More"}
+        <ChevronRight
+          className={`ml-1 h-4 w-4 transition-transform duration-300 ${isExpanded ? "rotate-90" : ""}`}
+        />
       </button>
 
       <div className="mb-8">
@@ -96,7 +127,10 @@ const SingleProject = () => {
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">Technologies Used</h2>
         <div className="flex flex-wrap gap-3">
           {project.technologies.map((tech, index) => (
-            <span key={index} className="px-4 py-2 bg-white text-blue-600 rounded-full text-sm font-medium flex items-center shadow-md hover:shadow-lg transition-shadow duration-300">
+            <span
+              key={index}
+              className="px-4 py-2 bg-white text-blue-600 rounded-full text-sm font-medium flex items-center shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
               <Tag className="h-4 w-4 mr-2" />
               {tech}
             </span>
@@ -105,27 +139,24 @@ const SingleProject = () => {
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4">
-        <a
+        <AppButton
           href={project.liveLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md hover:shadow-lg"
-        >
-          <Globe className="h-5 w-5 mr-2" />
-          View Live Project
-        </a>
-        <a
+          icon={Globe}
+          text="View Live Project"
+          targetBlank="_blank"
+          customBtnStyles="flex-1 flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md hover:shadow-lg"
+        />
+        <AppButton
           href={project.repoLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors duration-300 shadow-md hover:shadow-lg"
-        >
-          <GitHub className="h-5 w-5 mr-2" />
-          View Repository
-        </a>
+          icon={GitHub}
+          iconClasses="h-5 w-5 mr-2"
+          text="View Repository"
+          targetBlank="_blank"
+          customBtnStyles="flex-1 flex items-center justify-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors duration-300 shadow-md hover:shadow-lg"
+        />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default SingleProject;
