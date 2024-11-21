@@ -5,7 +5,7 @@ import { CheckSquare } from "react-feather";
 const Experience = () => {
   return (
     <div className="flex justify-start items-center py-4">
-      <div className="w-[30rem] mx-8 bg-white rounded-lg shadow-md border border-gray-300">
+      <div className="w-[30rem] lg:mx-8 mx-4 bg-white rounded-lg shadow-md border border-gray-300">
         <div className="p-4">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Experience</h2>
 

@@ -7,7 +7,7 @@ const ProjectsComponent = () => {
   const [data] = useState(projectsData || []);
   return (
     <div className="py-4">
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 px-8 gap-2">
+      <div className="flex justify-start flex-wrap px-4 lg:px-8 gap-8">
         {data?.map((item) => (
           <ProjectsCard key={item?.id} data={item} />
         ))}

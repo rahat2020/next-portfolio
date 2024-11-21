@@ -15,7 +15,7 @@ const AppTabs = ({
   id = "tab-id",
   secondComponent,
   tabs = [],
-  tabWrapperMargin = "mx-8",
+  tabWrapperMargin = "mx-4",
   callback = () => {}
 }) => {
   const pathname = usePathname();
@@ -39,7 +39,7 @@ const AppTabs = ({
     let classes = "py-2 rounded-full ";
 
     if (isSticky) {
-      classes += "sticky top-0 z-40 bg-gray ";
+      classes += "sticky top-0 z-40 lg:bg-gray ";
     }
 
     if (isItemsCenter) {
@@ -53,7 +53,7 @@ const AppTabs = ({
     }
 
     if (tabWrapperMargin) {
-      classes += `${tabWrapperMargin} `;
+      classes += `lg:mx-8 ${tabWrapperMargin} `;
     }
 
     if (isFullWidthTab) {
@@ -71,7 +71,7 @@ const AppTabs = ({
   };
 
   const getTabButtonClasses = (path) => {
-    let classes = "inline text-sm font-medium lg:px-8 px-4 py-2.5 rounded-full ";
+    let classes = "inline text-sm font-bold lg:px-8 px-4 py-2.5 rounded-full ";
     if (pathname?.includes(path)) {
       classes += "bg-brand-light text-brand";
     } else {

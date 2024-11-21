@@ -45,7 +45,7 @@ module.exports = {
           DEFAULT: "var(--brand-color)",
           secondary: "#FFCC42",
           link: "#004E92",
-          light: "#E6F6FC"
+          light: "var(--light-color)"
         },
         icons: {
           facebook: "#0863F7",

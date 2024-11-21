@@ -61,7 +61,7 @@ const ProfileCard = () => {
         </div>
 
         {/* Profile section */}
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="w-full lg:px-28 mx-auto px-4">
           {/* Profile photo */}
           <div className="relative bg-transparent -mt-24 mb-4">
             <div className="inline-block justify-center items-center rounded-full w-40 h-40 border-4 border-background">
@@ -77,15 +77,15 @@ const ProfileCard = () => {
           </div>
 
           {/* Profile info */}
-          <div className="flex justify-between items-start">
+          <div className="flex justify-between flex-col lg:flex-row items-start">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
                 <h1 className="text-2xl font-semibold">Kazi MD. Boktair Uddin Rahat</h1>
-                <span className="text-sm text-muted-foreground">• 1st</span>
+                <span className="text-sm text-muted-foreground hidden lg:flex">• 1st</span>
               </div>
               <p className="text-16 text-border-dark font-semibold">
-                Front End Developer | React JS Developer | Javascript Developer | (Javascript
-                Developer) - Gain Solution Ltd.
+                Front End Developer | React JS Developer| (Javascript Developer) - Gain Solution
+                Ltd.
               </p>
               <p className="text-border-dark font-semibold">
                 Dhaka, Bangladesh ·{" "}
@@ -152,7 +152,7 @@ const ProfileCard = () => {
                     className="rounded-full border-2 border-background"
                   />
                 </div>
-                <span className="text-sm text-muted-foreground">
+                <span className="text-sm text-muted-foreground px-4 lg:px-0">
                   <Link href="#" className="text-blue-600 hover:underline">
                     Md. Lutfar Rahman, Jeromio Ghagra Calvin
                   </Link>
@@ -165,7 +165,7 @@ const ProfileCard = () => {
             </div>
 
             {/* Action buttons */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 pt-4 lg:pt-0">
               <AppButton
                 customStyles="bg-blue-600 hover:bg-blue-700 text-white"
                 icon={MessageCircle}
