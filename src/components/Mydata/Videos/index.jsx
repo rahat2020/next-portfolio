@@ -2,16 +2,24 @@
 
 import { videoData } from "@/data/videoData";
 import React, { useState } from "react";
-import VideoCard from "./VideoCard";
+import VideoPlayer from "./VideoPlayer";
+import RelatedVideos from "./RelatedVideos";
 
 const VideosCompo = () => {
   const [data] = useState(videoData || []);
   return (
     <div className="py-4">
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 px-8 gap-2">
-        {data?.map((item) => (
-          <VideoCard key={item?.id} data={item} />
-        ))}
+      <div className="container mx-auto p-4">
+        <div className="flex flex-col lg:flex-row gap-4">
+          <div className="lg:w-2/3">
+            <VideoPlayer />
+          </div>
+          <div className="lg:w-1/3">
+            {data?.map((item) => (
+              <RelatedVideos key={item?.id} data={item} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

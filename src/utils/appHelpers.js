@@ -48,11 +48,11 @@ export const getPlayerDimensions = (screenSize) => {
       return { width: "300px", height: "180px" };
     case "md":
     case "lg":
-      return { width: "330px", height: "200px" };
+      return { width: "600px", height: "400px" };
     case "xl":
-      return { width: "355px", height: "200px" };
+      return { width: "770px", height: "400px" };
     case "xxl":
-      return { width: "415px", height: "200px" };
+      return { width: "1000px", height: "500px" };
     default:
       return { width: "360px", height: "200px" };
   }

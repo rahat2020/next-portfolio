@@ -12,7 +12,7 @@ const ProjectsCard = ({ data }) => {
 
   return (
     <div
-      className="w-[22rem] mt-4 rounded-lg overflow-hidden shadow-lg bg-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl"
+      className="w-[22rem] rounded-lg overflow-hidden shadow-lg bg-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
