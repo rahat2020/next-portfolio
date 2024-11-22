@@ -4,13 +4,15 @@ import { alterredUserAvatar, gainSolution, nuUniversity } from "@/utils/appHelpe
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Bell, LogIn, LogOut, MessageCircle, User } from "react-feather";
+import { Bell, Home, LogIn, LogOut, MessageCircle } from "react-feather";
 import ContactForm from "../Mydata/helper/ContactForm";
 import AppDropdown from "@/UI/AppDropdown";
 import ContactInfo from "../Mydata/helper/ContactInfo";
 import SignInAndSignUp from "../Authentication";
+import { useRouter } from "next/navigation";
 
 const ProfileCard = () => {
+  const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState({
     contact: false,
     contactInfo: false,
@@ -19,9 +21,14 @@ const ProfileCard = () => {
   const [btnLabel, setBtnLabel] = useState("More");
 
   const handleCallback = (params) => {
+    console.log("🚀 ~ handleCallback ~ params:", params);
     const { label } = params || {};
     setBtnLabel(label);
-    setIsModalOpen((prev) => ({ ...prev, loginCompo: true }));
+    if (params?.label === "Login") {
+      setIsModalOpen((prev) => ({ ...prev, loginCompo: true }));
+    } else if (params?.label === "Dashboard") {
+      router.push("/dashboard");
+    }
   };
 
   const dropdownData = [
@@ -35,12 +42,12 @@ const ProfileCard = () => {
       id: 2,
       label: "Logout",
       icon: LogOut,
-      show: true
+      show: false
     },
     {
       id: 2,
-      label: "Profile",
-      icon: User,
+      label: "Dashboard",
+      icon: Home,
       show: true
     }
   ];

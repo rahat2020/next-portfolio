@@ -42,15 +42,17 @@ const AppDropdown = ({ buttonLabel = "Options", menuItems = [], callback = () =>
               {menuItems?.map((item, index) => {
                 const { label, icon: Icon } = item || {};
                 return (
-                  <button
-                    key={index}
-                    onClick={() => callback(item)}
-                    className="flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                    role="menuitem"
-                  >
-                    {Icon && <Icon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />}
-                    <span className="text-border-dark font-semibold text-14">{label}</span>
-                  </button>
+                  item?.show && (
+                    <button
+                      key={index}
+                      onClick={() => callback(item)}
+                      className="flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      role="menuitem"
+                    >
+                      {Icon && <Icon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />}
+                      <span className="text-border-dark font-semibold text-14">{label}</span>
+                    </button>
+                  )
                 );
               })}
             </div>

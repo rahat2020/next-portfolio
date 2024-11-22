@@ -60,7 +60,7 @@ const AppModal = ({
             <X className="w-6 h-6" />
           </button>
         </div>
-        <div className="p-4">{children}</div>
+        <div className="p-4 overflow-y-scroll">{children}</div>
       </div>
     </div>
   );
