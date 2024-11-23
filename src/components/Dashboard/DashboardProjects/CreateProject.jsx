@@ -104,7 +104,7 @@ const CreateProject = ({ setIsModalOpen }) => {
     setTimeout(() => {
       setIsLoading(false);
       toast.success("Project created successfully!");
-      setIsModalOpen({ ...prev, createProject: false });
+      setIsModalOpen((prev) => ({ ...prev, createProject: false }));
       setFormData({});
     }, 3000);
   };
