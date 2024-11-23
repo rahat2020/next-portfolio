@@ -9,6 +9,7 @@ const AppTable = ({ data, columns, itemsPerPage = 10, search = "" }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const handleSort = (column) => {
+    setCurrentPage(1);
     if (sortColumn === column) {
       setSortDirection(sortDirection === "asc" ? "desc" : "asc");
     } else {
@@ -32,7 +33,6 @@ const AppTable = ({ data, columns, itemsPerPage = 10, search = "" }) => {
     )
   );
 
-  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentData = filteredData.slice(startIndex, endIndex);
@@ -47,7 +47,7 @@ const AppTable = ({ data, columns, itemsPerPage = 10, search = "" }) => {
   };
 
   return (
-    <div className="w-full overflow-x-auto">
+    <div className="w-full max-h-[80vh] h-[80vh] overflow-x-auto">
       <table className="w-full border-collapse table-auto rounded-md">
         <thead>
           <tr className="bg-brand-light font-semibold text-border-dark">
@@ -77,28 +77,6 @@ const AppTable = ({ data, columns, itemsPerPage = 10, search = "" }) => {
           ))}
         </tbody>
       </table>
-      <div className="flex justify-between items-center mt-4">
-        <div>
-          Showing {startIndex + 1} to {Math.min(endIndex, filteredData.length)} of{" "}
-          {filteredData.length} entries
-        </div>
-        <div className="flex space-x-2">
-          <button
-            onClick={() => setCurrentPage(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="px-4 py-2 border rounded-md disabled:opacity-50"
-          >
-            Previous
-          </button>
-          <button
-            onClick={() => setCurrentPage(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="px-4 py-2 border rounded-md disabled:opacity-50"
-          >
-            Next
-          </button>
-        </div>
-      </div>
     </div>
   );
 };

@@ -29,7 +29,7 @@ const Sidebar = () => {
       >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-center h-16 bg-gray-900">
-            <h1 className="text-2xl font-bold">Dashboard</h1>
+            <h1 className="text-2xl font-bold">Rahat</h1>
           </div>
           <nav className="flex-1 px-4 py-4">
             <ul className="space-y-2">

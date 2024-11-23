@@ -7,7 +7,8 @@ const AppButton = ({
   text,
   icon: Icon,
   customStyles = "",
-  customBtnStyles = "",
+  customBtnStyles = "flex items-center",
+  disable = false,
   iconClasses = "",
   withoutHrefBtn = false,
   targetBlank = "",
@@ -18,13 +19,13 @@ const AppButton = ({
       className={`flex items-center px-2 md:px-6 py-1 md:py-2 rounded-md font-semibold duration-300 ${customStyles}`}
     >
       {withoutHrefBtn ? (
-        <button className={`flex items-center ${customBtnStyles}`} onClick={callback}>
+        <button disabled={disable} className={customBtnStyles} onClick={() => callback()}>
           {Icon && <Icon className={iconClasses || "w-5 h-5"} />}{" "}
           <span className="ms-2">{text}</span>
         </button>
       ) : (
         <Link href={href} onClick={callback} target={targetBlank} className="">
-          <button className={`flex items-center ${customBtnStyles}`}>
+          <button disabled={disable} className={`flex items-center ${customBtnStyles}`}>
             {Icon && <Icon className={iconClasses || "w-5 h-5"} />}{" "}
             <span className="ms-2">{text}</span>
           </button>
