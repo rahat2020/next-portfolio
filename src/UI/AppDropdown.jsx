@@ -3,7 +3,13 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "react-feather";
 
-const AppDropdown = ({ buttonLabel = "Options", menuItems = [], callback = () => {} }) => {
+const AppDropdown = ({
+  buttonLabel = "Options",
+  customStyles = "flex items-center justify-center bg-gray-100",
+  customButtonStyles = "w-32",
+  menuItems = [],
+  callback = () => {}
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -19,14 +25,14 @@ const AppDropdown = ({ buttonLabel = "Options", menuItems = [], callback = () =>
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
   const toggleDropdown = () => setIsOpen(!isOpen);
+
   return (
-    <div className="flex items-center justify-center bg-gray-100">
+    <div className={customStyles}>
       <div className="relative" ref={dropdownRef}>
         <button
           onClick={toggleDropdown}
-          className="flex items-center justify-between w-32 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className={`flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${customButtonStyles}`}
         >
           <span>{buttonLabel}</span>
           <ChevronDown

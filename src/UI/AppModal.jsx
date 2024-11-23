@@ -60,7 +60,9 @@ const AppModal = ({
             <X className="w-6 h-6" />
           </button>
         </div>
-        <div className="p-4 overflow-y-scroll">{children}</div>
+        <div className="scrollable-container p-4 overflow-y-auto max-h-[calc(90vh-4rem)]">
+          {children}
+        </div>
       </div>
     </div>
   );

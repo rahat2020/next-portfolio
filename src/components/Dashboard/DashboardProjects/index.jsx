@@ -34,6 +34,7 @@ const DashboardProjects = () => {
     createProject: false,
     editProject: false
   });
+
   const handleCallback = () => {
     setIsModalOpen((prev) => ({ ...prev, createProject: true }));
   };
